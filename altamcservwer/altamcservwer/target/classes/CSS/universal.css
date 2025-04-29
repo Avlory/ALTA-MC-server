@@ -1,0 +1,45 @@
+/*Animation*/
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Optional: Start with a slight vertical offset */
+    transition: opacity 1s, transform 1s;
+}
+.fade-in-animation {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* page background gradient and animation */
+body {
+    flex-direction: column;
+    min-height: 100vh;
+
+    background: linear-gradient(-45deg, #5ab9d6,
+    #9d4021);
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+
+    max-width: 100%;
+    overflow-x: hidden;
+
+    font-family: 'Saira', sans-serif;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 100% 50%;
+    }
+    50% {
+        background-position: 50% 100%;
+    }
+    75% {
+        background-position: 50% 0%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

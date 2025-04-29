@@ -1,0 +1,27 @@
+# Water Tribe 
+
+#141c35,
+#9cc9d8,
+#457daa,
+#2c2c94,
+
+# Air Nomads
+
+#af8d5a,
+#d5d6b7,
+#B8860B,
+#825316,
+
+# Fire Nation 
+
+#450a1a,
+#7F1D1D,
+#160f0f,
+#80461B,
+
+# Earth Kingdom
+
+#13220d,
+#3f501e,
+#4c4949,
+#7b6742,

@@ -110,13 +110,13 @@ body {
 }
 
 
-/* server stuff */
+/* servers white stuffing */
 .server-info {
-    border: 1px solid #ccc;
+    border: 1px solid #ffffff;
     padding: 15px;
     border-radius: 5px;
-    display: inline-block; /* Or adjust layout as needed */
-    background-color: #f9f9f9;
+    background-color: transparent;
+    display: flex;
 }
 
 .server-info p {
@@ -125,29 +125,31 @@ body {
 
 /* Base style for the status dot */
 .status-indicator {
-    display: inline-block; /* Allows setting width/height */
+    display: inline-block; 
     width: 12px;
     height: 12px;
     border-radius: 50%; /* Makes it a circle */
     margin-right: 5px;
     vertical-align: middle; /* Aligns dot nicely with text */
-    background-color: #cccccc; /* Default grey color */
     transition: background-color 0.5s ease; /* Smooth color change */
 }
 
-/* Color for when checking */
+/* Color for when checking*/
 .status-checking {
     background-color: #ffcc00; /* Yellow/Orange */
+    text-shadow: 0 0 8px rgba(191, 169, 40, 0.8);
 }
 
 /* Color for when online */
 .status-online {
     background-color: #4CAF50; /* Green */
+    text-shadow: 1px 1px 8px rgb(35, 232, 38);
 }
 
 /* Color for when offline */
 .status-offline {
     background-color: #f44336; /* Red */
+    text-shadow: 0 0 8px rgb(195, 14, 14, .08);
 }
 
 /* Color for when there's an error */
@@ -157,7 +159,8 @@ body {
 
 #server-ip {
     font-weight: bold;
-    background-color: #e0e0e0;
+    background-color: rgba(54, 52, 52, 0.979);
     padding: 2px 5px;
     border-radius: 3px;
+    color: #ffffff;
 }

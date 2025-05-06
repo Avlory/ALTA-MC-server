@@ -11,35 +11,108 @@
 }
 
 /* page background gradient and animation */
+/* Basic body setup */
 body {
-    flex-direction: column;
-    min-height: 100vh;
-
-    background: linear-gradient(-45deg, #5ab9d6,
-    #9d4021);
-    background-size: 400% 400%;
-    animation: gradient 5s ease infinite;
-
-    max-width: 100%;
-    overflow-x: hidden;
-
-    font-family: 'Saira', sans-serif;
+    margin: 0;
+    min-height: 100vh; /* Ensure body takes full height */
+    font-family: sans-serif;
 }
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    25% {
-        background-position: 100% 50%;
-    }
-    50% {
-        background-position: 50% 100%;
-    }
-    75% {
-        background-position: 50% 0%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+/* Container to hold the layers and content */
+.gradient-container {
+    position: relative; /* Needed for absolute positioning of layers */
+    width: 100%;
+    min-height: 100vh; /* Takes full viewport height */
+    overflow: hidden; /* Prevents content overflow issues */
+    background-color: #d7d7d7; /* Fallback or base color (e.g., from last gradient) */
+}
+
+/* Style for all gradient layers */
+.gradient-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Start fully transparent */
+    /* Define the total animation duration */
+    --animation-duration: 20s; /* Total time for one full cycle (e.g., 20s) */
+    animation-name: crossfade;
+    animation-duration: var(--animation-duration);
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out; /* Controls the fade smoothness */
+}
+
+/* Assign specific gradients and animation delays to each layer */
+.layer1 {
+    background: linear-gradient(-45deg, #f18b0f, #962b07);
+    /* Layer 1 starts immediately visible, fades out */
+    animation-name: fadeLayer1;
+}
+
+.layer2 {
+    background: linear-gradient(45deg, #0f8ff1, #4ce7df);
+    /* Layer 2 fades in after Layer 1 starts fading out */
+     animation-name: fadeLayer2;
+}
+
+.layer3 {
+    background: linear-gradient(60deg, #30bf26, #0a5d04);
+    /* Layer 3 fades in after Layer 2 starts fading out */
+     animation-name: fadeLayer3;
+}
+
+.layer4 {
+    background: linear-gradient(-60deg, #837318, #c2cb16);
+    /* Layer 4 fades in after Layer 3 starts fading out */
+     animation-name: fadeLayer4;
+}
+
+/* Keyframes for each layer's opacity cycle */
+/* Each layer is visible for roughly 1/4 of the duration */
+/* Percentages define the points where fades start/end */
+/* Adjust percentages for faster/slower transitions */
+@keyframes fadeLayer1 {
+    0%   { opacity: 1; } /* Start visible */
+    20%  { opacity: 1; } /* Hold */
+    25%  { opacity: 0; } /* Fade out */
+    95%  { opacity: 0; } /* Stay hidden */
+    100% { opacity: 1; } /* Fade back in for loop */
+}
+
+@keyframes fadeLayer2 {
+    0%   { opacity: 0; } /* Start hidden */
+    20%  { opacity: 0; } /* Start fading in */
+    25%  { opacity: 1; } /* Fully visible */
+    45%  { opacity: 1; } /* Hold */
+    50%  { opacity: 0; } /* Fade out */
+    100% { opacity: 0; } /* Stay hidden */
+}
+
+@keyframes fadeLayer3 {
+    0%   { opacity: 0; } /* Start hidden */
+    45%  { opacity: 0; } /* Start fading in */
+    50%  { opacity: 1; } /* Fully visible */
+    70%  { opacity: 1; } /* Hold */
+    75%  { opacity: 0; } /* Fade out */
+    100% { opacity: 0; } /* Stay hidden */
+}
+
+@keyframes fadeLayer4 {
+    0%   { opacity: 0; } /* Start hidden */
+    70%  { opacity: 0; } /* Start fading in */
+    75%  { opacity: 1; } /* Fully visible */
+    95%  { opacity: 1; } /* Hold */
+    100% { opacity: 0; } /* Fade out (as Layer 1 fades in) */
+}
+
+
+/* Optional: Style for content on top */
+.content {
+    position: relative; /* Keep content above layers */
+    z-index: 5; /* Ensure content is above gradient layers */
+    color: white; /* Example text color */
+    text-align: center;
+    padding-top: 40vh; /* Adjust vertical position */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Add shadow for readability */
 }

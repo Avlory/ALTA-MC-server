@@ -13,8 +13,13 @@
 </head>
 
 <script src="../resources/JavaScript/fade.js"></script>
+<script src="../resources/JavaScript/serverstat.js" defer></script>
 
 <body>
+        <div class="gradient-layer layer1"></div>
+        <div class="gradient-layer layer2"></div>
+        <div class="gradient-layer layer3"></div>
+        <div class="gradient-layer layer4"></div>
     <!-- Navbar -->
      <nav>
         <ul class="nav-links fade-in">
@@ -32,18 +37,18 @@
 
     
     <!-- IP/Player's/Active -->
-    <div class="server-info">
+    <div class="server-info fade-in">
         <p>
-            <strong>Server IP:</strong>
-            <span id="server-ip">YOUR_SERVER_IP_OR_DOMAIN</span> </p>
+            <strong class="fade-in">Server IP:</strong>
+            <span id="server-ip" class="fade-in">play.jackpotmc.com</span> </p>
         <p>
-            <strong>Status:</strong>
-            <span id="server-status-indicator" class="status-indicator status-checking"></span>
-            <span id="server-status-text">Checking...</span>
+            <strong class="fade-in">Status:</strong>
+            <span id="server-status-indicator" class="fade-in status-indicator status-checking"></span>
+            <span id="server-status-text" class="fade-in">Checking...</span>
         </p>
         <p>
-            <strong>Players:</strong>
-            <span id="server-players">? / ?</span>
+            <strong class="fade-in">Players:</strong>
+            <span id="server-players" class="fade-in">? / ?</span>
         </p>
     </div>
     <!-- Concept -->

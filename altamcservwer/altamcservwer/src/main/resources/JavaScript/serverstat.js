@@ -1,7 +1,7 @@
 // --- Configuration ---
 // Replace this with your Minecraft server's IP address or domain name.
 // If your server uses a non-standard port, include it (e.g., "play.myserver.com:25577")
-const serverAddress = "";
+const serverAddress = "play.jackpotmc.com";
 
 // --- Get HTML Elements ---
 // Find the HTML elements we need to update using their IDs.
@@ -40,6 +40,7 @@ function fetchServerStatus() {
             if (data.online) {
                 // Server is ONLINE
                 statusIndicatorElement.classList.add("status-online");
+                statusIndicatorElement.classList.remove("status.checking");
                 statusTextElement.textContent = "Online";
                 // Display player count (use 0 if 'players' object is missing)
                 const onlinePlayers = data.players ? data.players.online : 0;
@@ -48,6 +49,7 @@ function fetchServerStatus() {
             } else {
                 // Server is OFFLINE
                 statusIndicatorElement.classList.add("status-offline");
+                statusIndicatorElement.classList.remove("status.checking");
                 statusTextElement.textContent = "Offline";
                 playersElement.textContent = "0 / 0";
             }
@@ -72,6 +74,5 @@ fetchServerStatus();
 
 // --- Optional: Auto-Refresh ---
 // Uncomment the following lines to automatically refresh the status every 60 seconds (60000 milliseconds).
-/*
-setInterval(fetchServerStatus, 60000); // Refresh every 1 minute
-*/
+
+setInterval(fetchServerStatus, 10000); // Refresh every 1 minute
